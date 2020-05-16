@@ -23,7 +23,7 @@ $(PROGRAM):
 	go build $(LDFLAGS) -o $(BIN_FILE) $(CMD_PATH)
 
 clean-$(PROGRAM):
-	rm $(BIN_AGENT)
+	rm $(BIN_FILE)
 
 clean: clean-$(PROGRAM)
 	rmdir $(BIN_DIR)
