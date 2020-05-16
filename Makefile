@@ -3,18 +3,16 @@ VERSION := 0.0.0
 
 BASE := $(shell pwd)
 
-BIN_DIR := $(BASE)/bin
-
-BIN_FILE := $(BIN_DIR)/$(PROGRAM)
-
 CMD_PATH := $(BASE)/app/run
 
+BIN_DIR := $(BASE)/bin
+BIN_FILE := $(BIN_DIR)/$(PROGRAM)
+
+
+BUILD_PKG := $(shell head -1 $(BASE)/go.mod | cut -d ' ' -f 2)
 
 BUILD_DATE := $(shell date -u +%Y-%m-%d.%H:%M:%S-%Z)
 GIT_COMMIT := $(shell git rev-parse HEAD)
-
-
-VERSION_PKG := $(shell head -1 go.mod | cut -d ' ' -f 2)
 
 LDFLAGS :=  -ldflags "\
 	-X $(BUILD_PKG).version=$(VERSION) \
